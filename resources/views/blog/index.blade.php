@@ -23,7 +23,7 @@
     @endforeach
     <a href="{{ url('post/'.$blog->id.'/edit') }}" class="btn btn-primary">Edit Blog</a>
     <a href="{{ url('post/'.$blog->id.'/delete') }}" class="btn btn-danger" onclick="return confirm('Are you sure to delete this?')">Delete Blog</a>
-    <a href="{{ url('post/'.$blog->id.'/comment') }}" class="btn btn-danger">Add Comment</a>
+
 <form method="POST" action="{{ url('comment/'.$blog->id) }}">
     @csrf
   <div class="mb-3">
