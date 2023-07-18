@@ -71,10 +71,11 @@ class BlogsController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        // $userID = auth()->user()->id;
-        // abort_if(Blogs::find($id)->where('user_id', $userID));
+        $userID = auth()->user()->id;
         $data = Blogs::where('id',$id)->firstOrFail();
-        // $data = Blogs::where('id',$id);
+
+        abort_if($data && $data->user_id !== $userID, 403);
+
         return view('blog.edit', compact('data'));
     }
 
